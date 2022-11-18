@@ -21,18 +21,38 @@
   </head>
 
   <body>
+
+    <!-- The start page of quiz -->
     <div id="start-page">
-        <h1 class="flex justify-center">
-            Movie Review Game 
-        </h1>
-        <button type="button" class="bg-sky-500 hover:bg-sky-700">
-            Start
-        </button>
-        <p>rules</p>
+        <h1 class="flex justify-center">Movie Review Game</h1>
+        <button class="startBtn bg-sky-500 hover:bg-sky-700" type="button">Start</button>
+        <div class="right" style="background-color:#ddd;">
+        <h2>Game Rules</h2>
+        <p>Search a movie genre and click START to begin game. Your given two movie ratings, use your expertise to choose which rating is correct for the presented movie trailer. View the provided movie trailers as a hint.</p>
+        <div class="row">
+            <div class="left" style="background-color:#bbb;">
+              <h2>Menu</h2>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Select a Genre" title="Type in a category">
+            <ul id="myMenu">
+                <li><a href="#">Comedy</a></li>
+                <li><a href="#">Horror</a></li>
+                <li><a href="#">Thriller</a></li>
+                <li><a href="#">Mystery</a></li>
+                <li><a href="#">Genre5</a></li>
+                <li><a href="#">Genre6</a></li>
+                <li><a href="#">Genre7</a></li>
+                <li><a href="#">Genre8</a></li>
+                <li><a href="#">Genre9</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
     </div>
+
+    <!-- The quiz page with movie trailer -->
     <div id="quiz">
-        <p class="flex justify-center">video</p>
-        <a></a>
+        <!-- included video tag to see if randomized videos would appear here -->
+        <video controls width="550" height="550" class="flex justify-center" id="movieTrailer">video</video>
         <div class="flex flex-row justify-center">
             <div class="choices">
                 <p>
