@@ -4,11 +4,14 @@
     --ternary-bg-color: gold;
 }
 
+h1 {
+    font-size: 20px;
+}
+
 .searchGenre  {
     background-color: var(--main-bg-color);
-    justify-content: center;
-    margin: 4rem;
-    padding: 4rem;
+    margin: 10rem;
+    padding: 10rem;
 } 
 
 .choices {
@@ -16,6 +19,6 @@
 }
 
 video {
-    margin: 4rem;
-    padding: 4rem;
+    margin: auto;
+    padding: auto;
 }
