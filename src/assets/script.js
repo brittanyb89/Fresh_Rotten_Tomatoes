@@ -1,4 +1,11 @@
 // Activate start button
+const startBtn = document.getElementById("begin");
+
+startBtn.addEventListener("click", startGame);
+
+function startGame(event) {
+  console.log("begin");
+}
 
 // Activate dropdown selection
 

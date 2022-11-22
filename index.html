@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <!-- The start page of quiz -->
+    <!-- Part 1 of quiz; start page-->
     <main id="start-page" class="flex flex-col items-center gap-y-4 pt-4">
       <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
       <button
@@ -29,18 +29,19 @@
       >
         Start
       </button>
-
       <section>
-        <h2>Game Rules</h2>
-        <p>
+        <h2 class="text-4x1 text-center font-semibold">Game Rules</h2>
+        <p class="text-4x1 text-ellipsis text-center font-medium">
           Select a movie genre and click START to begin game. Your given two
           movie ratings, use your expertise to choose which rating is correct
           for the presented movie trailer. View the provided movie trailers as a
           hint.
         </p>
+        <!-- dropdown menu to select movie genre -->
         <button
           class="inline-flex items-center rounded bg-gray-300 py-2 px-4 font-semibold text-gray-700"
-          type="button"
+          type="submit"
+          id="begin"
         >
           <span class="mr-1">Select Genre</span>
           <svg
@@ -78,40 +79,52 @@
         </ul>
       </section>
 
-      <!-- The quiz page with movie trailer -->
+      <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
       <section id="quiz">
         <!-- included video tag to see if randomized videos would appear here -->
         <video controls width="550" height="550" id="movieTrailer"></video>
-
-        <div class="flex flex-row justify-center">
-          <div class="choices gap-y-6">
-            <p>placeholder</p>
+        <section class="container">
+          <div id="question-container" class="hide">
+            <div id="question">Which movie rating is correct?</div>
             <button type="button" class="gap-y-10 bg-sky-500 hover:bg-sky-700">
               Option A
             </button>
-          </div>
-
-          <div class="choices gap-y-6">
-            <p>placeholder</p>
             <button type="button" class="gap-y-10 bg-sky-500 hover:bg-sky-700">
               Option B
             </button>
           </div>
+        </section>
+        <!-- <div class="flex flex-row justify-center">
+          <div class="choices gap-y-6">
+            <p>placeholder</p>
+          </div>
+
+          <div class="choices gap-y-6">
+            <p>placeholder</p>
+
+          </div>
+        </div> -->
+      </section>
+
+      <!-- part 3 of quiz; the end of game with scores -->
+      <section id="score">
+        <div id="leaderboard" class="hide">
+          <h2>Scores</h2>
+          <ul>
+            <li id="first"></li>
+            <li id="second"></li>
+            <li id="third"></li>
+          </ul>
+          <p>your score: <span>new score display</span></p>
+          <button type="button" class="bg-sky-500 hover:bg-sky-700">
+            Play Again
+          </button>
+          <button type="button" class="bg-sky-500 hover:bg-sky-700">
+            Exit
+          </button>
         </div>
       </section>
     </main>
-
-    <div id="score">
-      <h2>Scores</h2>
-      <ul>
-        <li id="first"></li>
-        <li id="second"></li>
-        <li id="third"></li>
-      </ul>
-      <p>your score</p>
-      <button type="button" class="bg-sky-500 hover:bg-sky-700">
-        Play Again
-      </button>
-    </div>
+    <script src="./src/assets/script.js"></script>
   </body>
 </html>
