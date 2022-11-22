@@ -1,24 +1,4 @@
-:root {
-    --main-bg-color: rgb(175 172 172);
-    --secondary-bg-color: rgb(29 28 28);
-    --ternary-bg-color: gold;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-h1 {
-    font-size: 20px;
-}
-
-.searchGenre  {
-    background-color: var(--main-bg-color);
-    margin: 10rem;
-    padding: 10rem;
-} 
-
-.choices {
-    margin: 10%
-}
-
-video {
-    margin: auto;
-    padding: auto;
-}
