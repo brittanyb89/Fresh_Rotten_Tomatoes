@@ -1,3 +1,16 @@
+:root {
+    --main-bg-color: rgb(175 172 172);
+    --secondary-bg-color: rgb(29 28 28);
+    --ternary-bg-color: gold;
+}
+
+.searchGenre  {
+    background-color: var(--main-bg-color);
+    justify-content: center;
+    margin: 4rem;
+    padding: 4rem;
+} 
+
 .choices {
     margin: 10%
 }
