@@ -22,15 +22,16 @@
   <body>
     <!-- Part 1 of quiz; start page-->
     <main id="start-page" class="flex flex-col items-center gap-y-4 pt-4">
-      <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
-      <button
-        class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
-        type="submit"
-        id="begin"
-      >
-        Start
-      </button>
       <section>
+        <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
+        <button
+          class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
+          type="submit"
+          id="begin"
+        >
+          Start
+        </button>
+
         <h2 class="text-4x1 text-center font-semibold">Game Rules</h2>
         <p class="text-4x1 text-ellipsis text-center font-medium">
           Select a movie genre and click START to begin game. Your given two
@@ -80,7 +81,7 @@
       </section>
 
       <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
-      <section id="quiz">
+      <section id="quiz" class="hidden">
         <!-- included video tag to see if randomized videos would appear here -->
         <video controls width="550" height="550" id="movieTrailer"></video>
         <section class="container">
@@ -107,7 +108,7 @@
       </section>
 
       <!-- part 3 of quiz; the end of game with scores -->
-      <section id="score">
+      <section id="score" class="hidden">
         <div id="leaderboard" class="hide">
           <h2>Scores</h2>
           <ul>
