@@ -2,16 +2,40 @@
 const startBtn = document.querySelector("#begin");
 const startPage = document.querySelector("#start");
 const quiz = document.querySelector("#quiz");
+const select = document.querySelector("select");
+
+// TODO: Replace this with API results
+const GENRES = ["Action", "Romance"];
 
 function startGame() {
   startBtn.classList.add("hidden");
   startPage.classList.add("hidden");
   quiz.classList.remove("hidden");
+
+  // Show the select
 }
 
-startBtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", function () {
+  startGame();
+});
 
-// Activate dropdown selection
+function renderGenres(genres) {
+  genres.forEach((genre) => {
+    const option = document.createElement("option");
+    option.value = genre.toLowerCase();
+    option.innerText = genre;
+    select.appendChild(option);
+  });
+}
+
+// TODO: Actually use the fetched genres to build this list instead of the hardcoded list
+renderGenres(GENRES);
+
+select.addEventListener("change", function (event) {
+  const selectedGenre = event.target.value;
+
+  // Send 'selectedGenre' to the API and let the magic go
+});
 
 // Each question is displayed one by one
 
