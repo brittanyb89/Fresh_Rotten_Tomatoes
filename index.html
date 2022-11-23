@@ -22,65 +22,29 @@
   <body>
     <!-- Part 1 of quiz; start page-->
     <main id="start-page" class="flex flex-col items-center gap-y-4 pt-4">
-      <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
-      <button
-        class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
-        type="submit"
-        id="begin"
-      >
-        Start
-      </button>
-      <section>
-        <h2 class="text-4x1 text-center font-semibold">Game Rules</h2>
-        <p class="text-4x1 text-ellipsis text-center font-medium">
+      <section id="start">
+        <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
+        <button
+          class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
+          type="submit"
+          id="begin"
+        >
+          Start
+        </button>
+
+        <h2 class="text-center text-4xl font-semibold" id="rules">
+          Game Rules
+        </h2>
+        <p class="text-ellipsis text-center text-4xl font-medium">
           Select a movie genre and click START to begin game. Your given two
           movie ratings, use your expertise to choose which rating is correct
           for the presented movie trailer. View the provided movie trailers as a
           hint.
         </p>
-        <!-- dropdown menu to select movie genre -->
-        <button
-          class="inline-flex items-center rounded bg-gray-300 py-2 px-4 font-semibold text-gray-700"
-          type="button"
-        >
-          <span class="mr-1">Select Genre</span>
-          <svg
-            class="h-4 w-4 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-            />
-          </svg>
-        </button>
-        <ul class="dropdown-menu absolute hidden pt-1 text-gray-700">
-          <li class="">
-            <a
-              class="whitespace-no-wrap block rounded-t bg-gray-200 py-2 px-4 hover:bg-gray-400"
-              href="#"
-              >One</a
-            >
-          </li>
-          <li class="">
-            <a
-              class="whitespace-no-wrap block bg-gray-200 py-2 px-4 hover:bg-gray-400"
-              href="#"
-              >Two</a
-            >
-          </li>
-          <li class="">
-            <a
-              class="whitespace-no-wrap block rounded-b bg-gray-200 py-2 px-4 hover:bg-gray-400"
-              href="#"
-              >Three is the magic number</a
-            >
-          </li>
-        </ul>
       </section>
 
       <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
-      <section id="quiz">
+      <section id="quiz" class="hidden">
         <!-- included video tag to see if randomized videos would appear here -->
         <video controls width="550" height="550" id="movieTrailer"></video>
         <section class="container">
@@ -94,20 +58,16 @@
             </button>
           </div>
         </section>
-        <!-- <div class="flex flex-row justify-center">
-          <div class="choices gap-y-6">
-            <p>placeholder</p>
-          </div>
-
-          <div class="choices gap-y-6">
-            <p>placeholder</p>
-
-          </div>
-        </div> -->
       </section>
 
+      <!-- TODO: Hide/show or move this select where it needs to go -->
+      <label for="genre-select">Choose a Genre:</label>
+      <select name="genres" id="genre-select">
+        <option value="">--Please choose an option--</option>
+      </select>
+
       <!-- part 3 of quiz; the end of game with scores -->
-      <section id="score">
+      <section id="score" class="hidden">
         <div id="leaderboard" class="hide">
           <h2>Scores</h2>
           <ul>
