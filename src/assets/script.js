@@ -1,22 +1,17 @@
 // Activate start button
 const startBtn = document.querySelector("#begin");
-const h2 = document.querySelector("rules");
-const = document.querySelectorAll("instruct");
-const menu = document.querySelector("#drop");
+const startPage = document.querySelector("#start");
+const quiz = document.querySelector("#quiz");
 
 function startGame() {
-  console.log("start");
   startBtn.classList.add("hidden");
-  menu.classList.add("hidden");
-  h2.classList.add("hidden");
-  p.classList.add("hidden");
+  startPage.classList.add("hidden");
+  quiz.classList.remove("hidden");
 }
 
 startBtn.addEventListener("click", startGame);
 
 // Activate dropdown selection
-
-// Hide part 1 of quiz once quiz is started and first question appears
 
 // Each question is displayed one by one
 
