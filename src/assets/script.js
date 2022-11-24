@@ -1,10 +1,13 @@
-// Activate start button
+// HTML stuff
 const startBtn = document.querySelector("#begin");
 const startPage = document.querySelector("#start");
 const quiz = document.querySelector("#quiz");
 const select = document.querySelector("select");
 const review1 = document.querySelector("#option-1");
 const review2 = document.querySelector("#option-2");
+const divBtns = document.querySelector("#questions");
+
+// points
 
 // movie API
 const otherGenres = [
@@ -101,6 +104,7 @@ function grabRandomMovieId(data) {
 }
 
 async function getMovieList(data) {
+  console.log(data);
   const request = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=d6a051201733ccdafa7109a2dba8cbc6&with_genres=${data.id}`
   );
@@ -143,3 +147,13 @@ function displayOptions() {
   review1.textContent = randomOrder[0];
   review2.textContent = randomOrder[1];
 }
+
+// pick answer
+divBtns.addEventListener("click", function (evennt) {
+  if (!event.target.matches(".reviews")) {
+    return;
+  }
+  if (event.target.textContent === correctAnswer) {
+  } else {
+  }
+});
