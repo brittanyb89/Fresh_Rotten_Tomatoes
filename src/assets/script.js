@@ -8,6 +8,7 @@ const review1 = document.querySelector("#option-1");
 const review2 = document.querySelector("#option-2");
 const divBtns = document.querySelector("#questions");
 const scoreDisplay = document.querySelector("#score-display");
+const genreDisplay = document.querySelector("#genre-display");
 
 // points and question number
 let pointTracker = 0;
@@ -48,6 +49,11 @@ function startGame() {
   startBtn.classList.add("hidden");
   startPage.classList.add("hidden");
   quiz.classList.remove("hidden");
+  if (selectedGenre === "Action") {
+    genreDisplay.textContent = `an ${selectedGenre}`;
+  } else {
+    genreDisplay.textContent = `a ${selectedGenre}`;
+  }
 }
 
 startBtn.addEventListener("click", function () {
