@@ -10,8 +10,9 @@ const divBtns = document.querySelector("#questions");
 const scoreDisplay = document.querySelector("#score-display");
 const genreDisplay = document.querySelector("#genre-display");
 const leaderBoard = document.querySelector("#leader-board");
-const correct = new Audio("./src/correct.mp3");
-const wrong = new Audio("./src/wrong.mp3");
+const inGameScore = document.querySelector("#in-game-score");
+const correct = new Audio("./src/assets/correct.mp3");
+const wrong = new Audio("./src/assets/wrong.mp3");
 
 // points and question number
 let pointTracker = 0;
@@ -156,12 +157,13 @@ divBtns.addEventListener("click", function (evennt) {
     return;
   }
   if (event.target.textContent === correctAnswer) {
-    pointTracker = pointTracker + 10;
-    grabSelectedMovieId(genreList);
     correct.play();
-  } else {
+    pointTracker = pointTracker + 10;
+    inGameScore.textContent = pointTracker;
     grabSelectedMovieId(genreList);
+  } else {
     wrong.play();
+    grabSelectedMovieId(genreList);
   }
 
   if (questionTracker === 9) {
