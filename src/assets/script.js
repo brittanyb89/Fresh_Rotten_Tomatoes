@@ -48,8 +48,6 @@ function startGame() {
   startBtn.classList.add("hidden");
   startPage.classList.add("hidden");
   quiz.classList.remove("hidden");
-
-  // Show the select
 }
 
 startBtn.addEventListener("click", function () {
@@ -65,17 +63,12 @@ function renderGenres(genres) {
   });
 }
 
-// TODO: Actually use the fetched genres to build this list instead of the hardcoded list
 renderGenres(GENRES);
 
 select.addEventListener("change", function (event) {
   selectedGenre = event.target.value;
   startBtn.classList.remove("hidden");
 });
-
-// Each question is displayed one by one
-
-// Hide part 1 and 2 and display part 3 when last question is answered
 
 // Show scoreboard with top 3 scores
 
@@ -133,12 +126,14 @@ async function getRandomMovie(data) {
 
 function saveReviews(reviews) {
   if (nameId.name === selectedGenre) {
-    correctAnswer = reviews.results[0].content;
+    const randomReview = Math.floor(Math.random() * reviews.results.length);
+    correctAnswer = reviews.results[randomReview].content;
     grabRandomMovieId(genreList);
     // console.log("correct", correctAnswer);
     // console.log(movieTitle);
   } else {
-    wrongAnswer = reviews.results[0].content;
+    const randomReview = Math.floor(Math.random() * reviews.results.length);
+    wrongAnswer = reviews.results[randomReview].content;
     // console.log("wrong", wrongAnswer);
     displayOptions();
   }
@@ -165,10 +160,13 @@ divBtns.addEventListener("click", function (evennt) {
     console.log("wrong");
   }
 
-  if (questionTracker === 5) {
+  if (questionTracker === 9) {
     quiz.classList.add("hidden");
     scorePage.classList.remove("hidden");
     scoreDisplay.textContent = pointTracker;
   }
   questionTracker++;
 });
+
+// save points local storage
+function saveScore() {}
