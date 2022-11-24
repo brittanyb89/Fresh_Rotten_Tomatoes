@@ -9,6 +9,7 @@ const review2 = document.querySelector("#option-2");
 const divBtns = document.querySelector("#questions");
 const scoreDisplay = document.querySelector("#score-display");
 const genreDisplay = document.querySelector("#genre-display");
+const leaderBoard = document.querySelector("#leader-board");
 
 // points and question number
 let pointTracker = 0;
@@ -176,6 +177,7 @@ divBtns.addEventListener("click", function (evennt) {
 function saveScore(gameScore) {
   if (localStorage.getItem("topScores") === null) {
     localStorage.setItem("topScores", JSON.stringify([gameScore]));
+    displayScore();
   } else {
     let SCORES = JSON.parse(localStorage.getItem("topScores"));
     SCORES.push(gameScore);
@@ -187,9 +189,18 @@ function sortScores(scoreList) {
   scoreList = [...new Set(scoreList)];
   scoreList.sort((a, b) => b - a);
   if (scoreList.length === 4) {
-    console.log("test");
     scoreList.pop();
   }
   localStorage.setItem("topScores", JSON.stringify(scoreList));
-  console.log(scoreList);
+  displayScore();
+}
+
+function displayScore() {
+  let SCORES = JSON.parse(localStorage.getItem("topScores"));
+  for (let i = 0; SCORES.length > i; i++) {
+    console.log("yo");
+    const li = document.createElement("li");
+    li.textContent = SCORES[i];
+    leaderBoard.append(li);
+  }
 }
