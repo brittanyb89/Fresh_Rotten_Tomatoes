@@ -11,6 +11,7 @@ const scoreDisplay = document.querySelector("#score-display");
 const genreDisplay = document.querySelector("#genre-display");
 const leaderBoard = document.querySelector("#leader-board");
 const inGameScore = document.querySelector("#in-game-score");
+const playAgain = document.querySelector("#play-again");
 const correct = new Audio("./src/assets/correct.mp3");
 const wrong = new Audio("./src/assets/wrong.mp3");
 
@@ -200,9 +201,13 @@ function sortScores(scoreList) {
 function displayScore() {
   let SCORES = JSON.parse(localStorage.getItem("topScores"));
   for (let i = 0; SCORES.length > i; i++) {
-    console.log("yo");
     const li = document.createElement("li");
     li.textContent = SCORES[i];
     leaderBoard.append(li);
   }
 }
+
+// play again button
+playAgain.addEventListener("click", function () {
+  location.reload();
+});
