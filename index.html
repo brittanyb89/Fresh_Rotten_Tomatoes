@@ -20,12 +20,16 @@
   </head>
 
   <body>
-    <!-- Part 1 of quiz; start page-->
     <main id="start-page" class="flex flex-col items-center gap-y-4 pt-4">
+      <!-- Part 1 of quiz; start page-->
       <section id="start">
         <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
+        <label for="genre-select">Choose a Genre:</label>
+        <select name="genres" id="genre-select">
+          <option value="">--Please choose an option--</option>
+        </select>
         <button
-          class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
+          class="hidden rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
           type="submit"
           id="begin"
         >
@@ -46,14 +50,23 @@
       <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
       <section id="quiz" class="hidden">
         <!-- included video tag to see if randomized videos would appear here -->
+        <h2>Which review is from <span id="genre-display"></span> movie</h2>
         <video controls width="550" height="550" id="movieTrailer"></video>
         <section class="container">
-          <div id="question-container" class="hide">
-            <div id="question">Which movie rating is correct?</div>
-            <button type="button" class="gap-y-10 bg-sky-500 hover:bg-sky-700">
+          <h3>Score: <span id="in-game-score">0</span></h3>
+          <div id="questions" class="hide">
+            <button
+              type="button"
+              class="reviews gap-y-10 bg-sky-500 hover:bg-sky-700"
+              id="option-1"
+            >
               Option A
             </button>
-            <button type="button" class="gap-y-10 bg-sky-500 hover:bg-sky-700">
+            <button
+              type="button"
+              class="reviews gap-y-10 bg-sky-500 hover:bg-sky-700"
+              id="option-2"
+            >
               Option B
             </button>
           </div>
@@ -61,26 +74,19 @@
       </section>
 
       <!-- TODO: Hide/show or move this select where it needs to go -->
-      <label for="genre-select">Choose a Genre:</label>
-      <select name="genres" id="genre-select">
-        <option value="">--Please choose an option--</option>
-      </select>
 
       <!-- part 3 of quiz; the end of game with scores -->
       <section id="score" class="hidden">
         <div id="leaderboard" class="hide">
           <h2>Scores</h2>
-          <ul>
-            <li id="first"></li>
-            <li id="second"></li>
-            <li id="third"></li>
-          </ul>
-          <p>your score: <span>new score display</span></p>
-          <button type="button" class="bg-sky-500 hover:bg-sky-700">
+          <ul id="leader-board"></ul>
+          <p>your score: <span id="score-display"></span></p>
+          <button
+            type="button"
+            class="bg-sky-500 hover:bg-sky-700"
+            id="play-again"
+          >
             Play Again
-          </button>
-          <button type="button" class="bg-sky-500 hover:bg-sky-700">
-            Exit
           </button>
         </div>
       </section>
