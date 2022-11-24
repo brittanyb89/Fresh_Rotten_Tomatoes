@@ -10,6 +10,8 @@ const divBtns = document.querySelector("#questions");
 const scoreDisplay = document.querySelector("#score-display");
 const genreDisplay = document.querySelector("#genre-display");
 const leaderBoard = document.querySelector("#leader-board");
+const correct = new Audio("./src/correct.mp3");
+const wrong = new Audio("./src/wrong.mp3");
 
 // points and question number
 let pointTracker = 0;
@@ -76,8 +78,6 @@ select.addEventListener("change", function (event) {
   selectedGenre = event.target.value;
   startBtn.classList.remove("hidden");
 });
-
-// Show scoreboard with top 3 scores
 
 // Activate play again button
 
@@ -158,10 +158,10 @@ divBtns.addEventListener("click", function (evennt) {
   if (event.target.textContent === correctAnswer) {
     pointTracker = pointTracker + 10;
     grabSelectedMovieId(genreList);
-    console.log(pointTracker);
+    correct.play();
   } else {
     grabSelectedMovieId(genreList);
-    console.log("wrong");
+    wrong.play();
   }
 
   if (questionTracker === 9) {
