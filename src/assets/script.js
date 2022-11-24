@@ -50,6 +50,8 @@ const GENRES = [
 
 let selectedGenre = {};
 
+//  Start game; added and removed "hidden" from certain sections of page
+
 function startGame() {
   startBtn.classList.add("hidden");
   startPage.classList.add("hidden");
@@ -80,10 +82,6 @@ select.addEventListener("change", function (event) {
   selectedGenre = event.target.value;
   startBtn.classList.remove("hidden");
 });
-
-// Activate play again button
-
-// Make replay button restart game (take user back to start screen, part 1)
 
 // movie API call
 getMovieIdList();
