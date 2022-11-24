@@ -2,12 +2,16 @@
 const startBtn = document.querySelector("#begin");
 const startPage = document.querySelector("#start");
 const quiz = document.querySelector("#quiz");
+const scorePage = document.querySelector("#score");
 const select = document.querySelector("select");
 const review1 = document.querySelector("#option-1");
 const review2 = document.querySelector("#option-2");
 const divBtns = document.querySelector("#questions");
+const scoreDisplay = document.querySelector("#score-display");
 
-// points
+// points and question number
+let pointTracker = 0;
+let questionTracker = 0;
 
 // movie API
 const otherGenres = [
@@ -104,7 +108,6 @@ function grabRandomMovieId(data) {
 }
 
 async function getMovieList(data) {
-  console.log(data);
   const request = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=d6a051201733ccdafa7109a2dba8cbc6&with_genres=${data.id}`
   );
@@ -154,6 +157,18 @@ divBtns.addEventListener("click", function (evennt) {
     return;
   }
   if (event.target.textContent === correctAnswer) {
+    pointTracker = pointTracker + 10;
+    grabSelectedMovieId(genreList);
+    console.log(pointTracker);
   } else {
+    grabSelectedMovieId(genreList);
+    console.log("wrong");
   }
+
+  if (questionTracker === 5) {
+    quiz.classList.add("hidden");
+    scorePage.classList.remove("hidden");
+    scoreDisplay.textContent = pointTracker;
+  }
+  questionTracker++;
 });
