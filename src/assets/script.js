@@ -3,6 +3,8 @@ const startBtn = document.querySelector("#begin");
 const startPage = document.querySelector("#start");
 const quiz = document.querySelector("#quiz");
 const select = document.querySelector("select");
+const review1 = document.querySelector("#option-1");
+const review2 = document.querySelector("#option-2");
 
 // movie API
 const otherGenres = [
@@ -74,6 +76,7 @@ select.addEventListener("change", function (event) {
 
 // Make replay button restart game (take user back to start screen, part 1)
 
+// movie API call
 getMovieIdList();
 
 async function getMovieIdList() {
@@ -125,11 +128,18 @@ function saveReviews(reviews) {
   if (nameId.name === selectedGenre) {
     correctAnswer = reviews.results[0].content;
     grabRandomMovieId(genreList);
-    console.log("correct", correctAnswer);
-    console.log(movieTitle);
+    // console.log("correct", correctAnswer);
+    // console.log(movieTitle);
   } else {
     wrongAnswer = reviews.results[0].content;
-    console.log("wrong", wrongAnswer);
+    // console.log("wrong", wrongAnswer);
     displayOptions();
   }
+}
+
+function displayOptions() {
+  let options = [correctAnswer, wrongAnswer];
+  const randomOrder = options.sort((a, b) => 0.5 - Math.random());
+  review1.textContent = randomOrder[0];
+  review2.textContent = randomOrder[1];
 }
