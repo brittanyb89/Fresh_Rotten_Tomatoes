@@ -19,7 +19,7 @@ const otherGenres = [
   "Romance",
   "Comedy",
   "Drama",
-  "Crime",
+  "Horror",
   "Fantasy",
   "Thriller",
 ];
@@ -37,8 +37,8 @@ let nameId = [];
 const GENRES = [
   "Action",
   "Western",
-  "Tv Movies",
-  "Horror",
+  "Crime",
+  "Science Fiction",
   "Documentary",
   "Family",
 ];
@@ -135,12 +135,9 @@ function saveReviews(reviews) {
     const randomReview = Math.floor(Math.random() * reviews.results.length);
     correctAnswer = reviews.results[randomReview].content;
     grabRandomMovieId(genreList);
-    // console.log("correct", correctAnswer);
-    // console.log(movieTitle);
   } else {
     const randomReview = Math.floor(Math.random() * reviews.results.length);
     wrongAnswer = reviews.results[randomReview].content;
-    // console.log("wrong", wrongAnswer);
     displayOptions();
   }
 }
@@ -170,9 +167,29 @@ divBtns.addEventListener("click", function (evennt) {
     quiz.classList.add("hidden");
     scorePage.classList.remove("hidden");
     scoreDisplay.textContent = pointTracker;
+    saveScore(pointTracker);
   }
   questionTracker++;
 });
 
 // save points local storage
-function saveScore() {}
+function saveScore(gameScore) {
+  if (localStorage.getItem("topScores") === null) {
+    localStorage.setItem("topScores", JSON.stringify([gameScore]));
+  } else {
+    let SCORES = JSON.parse(localStorage.getItem("topScores"));
+    SCORES.push(gameScore);
+    sortScores(SCORES);
+  }
+}
+
+function sortScores(scoreList) {
+  scoreList = [...new Set(scoreList)];
+  scoreList.sort((a, b) => b - a);
+  if (scoreList.length === 4) {
+    console.log("test");
+    scoreList.pop();
+  }
+  localStorage.setItem("topScores", JSON.stringify(scoreList));
+  console.log(scoreList);
+}
