@@ -24,8 +24,12 @@
     <main id="start-page" class="flex flex-col items-center gap-y-4 pt-4">
       <section id="start">
         <h1 class="text-center text-4xl font-bold">Movie Review Game</h1>
+        <label for="genre-select">Choose a Genre:</label>
+        <select name="genres" id="genre-select">
+          <option value="">--Please choose an option--</option>
+        </select>
         <button
-          class="rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
+          class="hidden rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-700"
           type="submit"
           id="begin"
         >
@@ -61,10 +65,6 @@
       </section>
 
       <!-- TODO: Hide/show or move this select where it needs to go -->
-      <label for="genre-select">Choose a Genre:</label>
-      <select name="genres" id="genre-select">
-        <option value="">--Please choose an option--</option>
-      </select>
 
       <!-- part 3 of quiz; the end of game with scores -->
       <section id="score" class="hidden">
