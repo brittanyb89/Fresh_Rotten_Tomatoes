@@ -44,7 +44,7 @@ const GENRES = [
   "Western",
   "Crime",
   "Science Fiction",
-  "Documentary",
+  "Mystery",
   "Family",
 ];
 
