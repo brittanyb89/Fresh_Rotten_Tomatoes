@@ -6,17 +6,17 @@ const getRequest = "https://www.googleapis.com/youtube/v3/videos";
 let tag = document.createElement("script");
 
 // Loads the IFrame Player API Javascript code using DOM modification to download the API code to ensure that code is retrieved asynchronously.
-tag.src = "https://www.youtube.com/iframe_api";
+tag.src = "https://www.youtube.com/player_api";
 let firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Creates an <iframe> after the API code downloads
 let player;
 function onYouTubeIframeAPIReady() {
-  player = new onYouTubeIframeAPIReady.Player("player", {
+  player = new YT.Player("ytplayer", {
     height: "390",
     width: "640",
-    videoId: "",
+    videoId: "genres",
     playerVars: {
       playsinline: 1,
     },
