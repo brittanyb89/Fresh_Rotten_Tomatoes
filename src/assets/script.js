@@ -81,10 +81,6 @@ select.addEventListener("change", function (event) {
   startBtn.classList.remove("hidden");
 });
 
-// Activate play again button
-
-// Make replay button restart game (take user back to start screen, part 1)
-
 // movie API call
 getMovieIdList();
 
