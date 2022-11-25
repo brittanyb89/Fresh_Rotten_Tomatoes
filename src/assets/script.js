@@ -66,6 +66,7 @@ function startGame() {
 startBtn.addEventListener("click", function () {
   startGame();
   grabSelectedMovieId(genreList);
+  console.log(genreList);
 });
 
 function renderGenres(genres) {
