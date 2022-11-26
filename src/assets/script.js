@@ -44,7 +44,7 @@ const GENRES = [
   "Western",
   "Crime",
   "Science Fiction",
-  "Documentary",
+  "Mystery",
   "Family",
 ];
 
@@ -80,10 +80,6 @@ select.addEventListener("change", function (event) {
   selectedGenre = event.target.value;
   startBtn.classList.remove("hidden");
 });
-
-// Activate play again button
-
-// Make replay button restart game (take user back to start screen, part 1)
 
 // movie API call
 getMovieIdList();
@@ -159,7 +155,7 @@ divBtns.addEventListener("click", function (evennt) {
   }
   if (event.target.textContent === correctAnswer) {
     correct.play();
-    pointTracker = pointTracker + 10;
+    pointTracker = pointTracker + 50;
     inGameScore.textContent = pointTracker;
     grabSelectedMovieId(genreList);
   } else {
