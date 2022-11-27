@@ -51,8 +51,17 @@
       <section id="quiz" class="hidden">
         <!-- included video tag to see if randomized videos would appear here -->
         <h2>Which review is from <span id="genre-display"></span> movie</h2>
-        <!-- where the Youtube API will place video player -->
-        <div id="player"></div>
+        <!-- Youtube movie trailers will play here -->
+        <iframe
+          id="player"
+          title="ytPlayer"
+          type="text/html"
+          width="640"
+          height="390"
+          src="https://www.youtube.com/embed/UCpJN7kiUkDrH11p0GQhLyFw"
+          frameborder="0"
+        ></iframe>
+
         <section class="container">
           <h3>Score: <span id="in-game-score">0</span></h3>
           <div id="questions" class="hide">
@@ -73,8 +82,6 @@
           </div>
         </section>
       </section>
-
-      <!-- TODO: Hide/show or move this select where it needs to go -->
 
       <!-- part 3 of quiz; the end of game with scores -->
       <section id="score" class="hidden">
