@@ -55,6 +55,7 @@ https://api.themoviedb.org/3/movie/
 https://tailwindcss.com/docs/guides/vite
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css
 https://stackoverflow.com/questions/25661182/embed-youtube-video-refused-to-display-in-a-frame-because-it-set-x-frame-opti
+https://www.w3schools.com/jsref/met_node_issamenode.asp
 
 ## License
 
