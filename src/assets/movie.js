@@ -1,26 +1,19 @@
 const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
-const getRequest = "https://www.googleapis.com/youtube/v3/videos";
+// const getRequest = "https://www.googleapis.com/youtube/v3/search";
 // https://www.youtube.com/embed?listType=playlist&list=PL${original_title}
 
-let tag = document.createElement("script");
-tag.id = "iframe-video";
-// tag.src = 'https://www.youtube.com/iframe_api';
+// Loads Iframe Player API code
+let iframe = document.createElement("iframe");
+iframe.id = "iframe-video";
+iframe.src =
+  "https://www.youtube.com/embed/UCpJN7kiUkDrH11p0GQhLyFw/iframe_api";
+let youTube = document.getElementsByTagName("iframe")[0];
+youTube.parentNode.insertBefore(iframe, youTube);
 
-// Loads the IFrame Player API Javascript code using DOM modification to download the API code to ensure that code is retrieved asynchronously.
-tag.src = "https://www.youtube.com/player_api";
-let firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// Creates an <iframe> after the API code downloads
-let player;
+let video;
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player("ytplayer", {
-    height: "390",
-    width: "640",
-    videoId: "original_title",
-    playerVars: {
-      playsinline: 1,
-    },
+  video = new YT.Player("player", {
+    videoId: "",
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange,
@@ -29,9 +22,46 @@ function onYouTubeIframeAPIReady() {
 }
 // API will call this function when the video player is ready
 function onPlayerReady(event) {
+  document.getElementById("player").style.borderColor = "#FF6D00";
+}
+function changeBorderColor(playerStatus) {
+  let color;
+  if (playerStatus == -1) {
+    color = "#37474F"; // not started  is gray
+  } else if (playerStatus == 0) {
+    color = "#FFFF00"; // ended is yellow
+  } else if (playerStatus == 1) {
+    color = "#33691E"; //playing is green
+  } else if (playerStatus == 2) {
+    color = "#DD2C00"; // paused is red
+  } else if (playerStatus == 3) {
+    color = "#AA00FF"; //buffering is purple
+  } else if (playerStatus == 5) {
+    color = "#FF6DOO"; // video cued is orange
+  }
+  if (color) {
+    document.getElementById("player").style.borderColor = color;
+  }
+}
+function onPlayerStateChange(event) {
+  changeBorderColor(event.data);
+}
+function onPlayerReady(event) {
   let cc_load_policy = 1;
   event.target.playVideo();
 }
+
+// let ytPlayer = document.getElementById("player");
+
+// player.parentNode.insertBefore(youtube, player);
+
+// add event to trigger iframe loading
+document.getElementById("begin").addEventListener("click", function () {
+  // add iframe to webpage
+  // player.appendChild(youtube);
+  // player.parentNode.insertBefore(youtube, "player");
+  // let youtube = document.getElementsByTagName("iframe")[0];
+});
 
 // API calls function when player state changes; the player should play for six seconds and stop.
 let done = false;
@@ -47,7 +77,9 @@ function stopVideo() {
 
 // YouTube API call for movie clips
 function fetchVideo() {
-  fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)
+  fetch(
+    `https://youtube.googleapis.com/youtube/v3/search?key=${apiKey};SameSite=None;Secure`
+  )
     //   pending promise from fetch (tested this to see if it was working by using console.log(fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)))
     .then((response) => {
       console.log(response);
@@ -59,7 +91,6 @@ function fetchVideo() {
     // Looked at response in network and used "items" to console.log to get array to appear in console
     .then((video) => {
       console.log(video.items);
-      document.querySelector("#ytplayer").innerHTML;
     })
     // catching errors with the below function
     .catch((error) => {
@@ -71,7 +102,7 @@ fetchVideo();
 
 // cueVideoById();
 
-// aync function cueVideoById() {
+// async function cueVideoById() {
 //     const request = await fetch(
 
 //     )
