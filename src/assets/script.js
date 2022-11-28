@@ -50,6 +50,8 @@ const GENRES = [
 
 let selectedGenre = {};
 
+//  Start game; added and removed "hidden" from certain sections of page
+
 function startGame() {
   startBtn.classList.add("hidden");
   startPage.classList.add("hidden");
@@ -64,6 +66,7 @@ function startGame() {
 startBtn.addEventListener("click", function () {
   startGame();
   grabSelectedMovieId(genreList);
+  console.log(genreList);
 });
 
 function renderGenres(genres) {

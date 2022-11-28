@@ -68,15 +68,18 @@
       <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
       <section id="quiz" class="hidden">
         <!-- included video tag to see if randomized videos would appear here -->
-        <h2 class="text-center text-3xl font-bold underline underline-offset-4">
-          Which review is from <span id="genre-display"></span> movie?
-        </h2>
-        <video
-          controls
-          width="550"
-          id="movieTrailer"
-          class="mx-auto mt-5"
-        ></video>
+        <h2>Which review is from <span id="genre-display"></span> movie</h2>
+        <!-- Youtube movie trailers will play here -->
+        <iframe
+          id="player"
+          title="ytPlayer"
+          type="text/html"
+          width="640"
+          height="390"
+          src="https://www.youtube.com/embed/UCpJN7kiUkDrH11p0GQhLyFw"
+          frameborder="0"
+        ></iframe>
+
         <section class="container">
           <h3 class="m-2 mx-auto w-1/12 border-4 text-center text-xl">
             Score: <span id="in-game-score">0</span>
@@ -99,6 +102,7 @@
           </div>
         </section>
       </section>
+
       <!-- part 3 of quiz; the end of game with scores -->
       <section id="score" class="mx-auto hidden">
         <div id="leaderboard" class="hide flex flex-col items-center">
@@ -125,6 +129,7 @@
         </div>
       </section>
     </main>
+    <script src="./src/assets/movie.js"></script>
     <script src="./src/assets/script.js"></script>
   </body>
 </html>
