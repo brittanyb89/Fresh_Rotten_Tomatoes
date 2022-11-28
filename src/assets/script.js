@@ -44,7 +44,7 @@ const GENRES = [
   "Western",
   "Crime",
   "Science Fiction",
-  "Documentary",
+  "Mystery",
   "Family",
 ];
 
@@ -158,7 +158,7 @@ divBtns.addEventListener("click", function (evennt) {
   }
   if (event.target.textContent === correctAnswer) {
     correct.play();
-    pointTracker = pointTracker + 10;
+    pointTracker = pointTracker + 50;
     inGameScore.textContent = pointTracker;
     grabSelectedMovieId(genreList);
   } else {
