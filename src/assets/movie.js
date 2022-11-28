@@ -77,9 +77,7 @@ function stopVideo() {
 
 // YouTube API call for movie clips
 function fetchVideo() {
-  fetch(
-    `https://youtube.googleapis.com/youtube/v3/search?key=${apiKey};SameSite=None;Secure`
-  )
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)
     //   pending promise from fetch (tested this to see if it was working by using console.log(fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)))
     .then((response) => {
       console.log(response);
