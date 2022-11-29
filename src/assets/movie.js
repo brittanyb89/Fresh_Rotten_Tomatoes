@@ -5,8 +5,7 @@ const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
 // Loads Iframe Player API code
 let iframe = document.createElement("iframe");
 iframe.id = "iframe-video";
-iframe.src =
-  "https://www.youtube.com/embed/UCpJN7kiUkDrH11p0GQhLyFw/iframe_api";
+iframe.src = "https://www.youtube.com/embed/899lBFnd4Tg";
 let youTube = document.getElementsByTagName("iframe")[0];
 youTube.parentNode.insertBefore(iframe, youTube);
 
@@ -77,8 +76,11 @@ function stopVideo() {
 
 // YouTube API call for movie clips
 function fetchVideo() {
-  fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)
-    //   pending promise from fetch (tested this to see if it was working by using console.log(fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)))
+  fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${movieTitle}&type=video&key=${apiKey}`
+  )
+    //// `https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}&apix_params=%7B"q"%3A"bad_santa%20trailer"%7D`
+    //   //   pending promise from fetch (tested this to see if it was working by using console.log(fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}`)))
     .then((response) => {
       console.log(response);
       if (!response.ok) {

@@ -14,6 +14,7 @@ const inGameScore = document.querySelector("#in-game-score");
 const playAgain = document.querySelector("#play-again");
 const correct = new Audio("./src/assets/correct.mp3");
 const wrong = new Audio("./src/assets/wrong.mp3");
+const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
 
 // points and question number
 let pointTracker = 0;
@@ -145,6 +146,7 @@ function saveReviews(reviews) {
 }
 
 function displayOptions() {
+  getClip();
   let options = [correctAnswer, wrongAnswer];
   const randomOrder = options.sort((a, b) => 0.5 - Math.random());
   review1.textContent = randomOrder[0];
@@ -210,3 +212,17 @@ function displayScore() {
 playAgain.addEventListener("click", function () {
   location.reload();
 });
+
+async function getClip() {
+  const request = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${movieTitle}&type=video&key=${apiKey}`
+  );
+  const movieSearch = await request.json();
+  console.log(movieSearch.items[0].id.videoId);
+  displayClip(movieSearch);
+}
+
+function displayClip(data) {
+  const clipEmbed = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+  console.log(clipEmbed);
+}
