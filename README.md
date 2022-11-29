@@ -6,7 +6,7 @@ This Program lets a user pick a genre of movie. Once the user has selected a gen
 
 ## Installation
 
-Web URL: https://brittanyb89.github.io/Movie_Review_Game/
+Web URL: https://super-tulumba-3c29b3.netlify.app
 
 GitHub URL: https://github.com/brittanyb89/Movie_Review_Game/
 
