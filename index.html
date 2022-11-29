@@ -37,7 +37,7 @@
             id="genre-select"
             class="form-select m-0 mt-5 block appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1.5 text-center text-base font-normal transition ease-in-out focus:border-red-400 focus:bg-white focus:text-red-400 focus:outline-none"
           >
-            <option value="">Genre</option>
+            <option value="" hidden>Genre</option>
           </select>
           <button
             class="mt-5 hidden rounded bg-red-400 px-4 py-2 text-white hover:bg-red-100"
@@ -67,19 +67,13 @@
 
       <!-- The quiz page with movie trailer and questions, part 2 of quiz-->
       <section id="quiz" class="hidden">
-        <!-- included video tag to see if randomized videos would appear here -->
-        <h2>Which review is from <span id="genre-display"></span> movie</h2>
+        <h2
+          class="mt-6 text-center text-4xl font-bold underline underline-offset-4"
+        >
+          Which review is from <span id="genre-display"></span> movie
+        </h2>
         <!-- Youtube movie trailers will play here -->
-        <div id="ytPlayer"></div>
-        <!-- <iframe
-          id="player"
-          title="ytPlayer"
-          type="text/html"
-          width="640"
-          height="390"
-          src="https://www.youtube.com/embed/hf8EYbVxtCY"
-          frameborder="0"
-        ></iframe> -->
+        <div id="ytPlayer" class="m-5 flex justify-center"></div>
 
         <section class="container">
           <h3 class="m-2 mx-auto w-1/12 border-4 text-center text-xl">

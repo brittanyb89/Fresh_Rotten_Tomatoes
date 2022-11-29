@@ -12,10 +12,6 @@ const genreDisplay = document.querySelector("#genre-display");
 const leaderBoard = document.querySelector("#leader-board");
 const inGameScore = document.querySelector("#in-game-score");
 const playAgain = document.querySelector("#play-again");
-const correct = new Audio("./src/assets/correct.mp3");
-const wrong = new Audio("./src/assets/wrong.mp3");
-const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
-const videoPlayer = document.querySelector("#player");
 
 // points and question number
 let pointTracker = 0;
@@ -51,6 +47,7 @@ const GENRES = [
 ];
 
 let selectedGenre = {};
+const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
 
 //  Start game; added and removed "hidden" from certain sections of page
 
@@ -155,17 +152,17 @@ function displayOptions() {
 }
 
 // pick answer
-divBtns.addEventListener("click", function (evennt) {
+divBtns.addEventListener("click", function (event) {
   if (!event.target.matches(".reviews")) {
     return;
   }
   if (event.target.textContent === correctAnswer) {
-    correct.play();
     pointTracker = pointTracker + 50;
     inGameScore.textContent = pointTracker;
     grabSelectedMovieId(genreList);
+    playCorrectAudio();
   } else {
-    wrong.play();
+    playWrongAudio();
     grabSelectedMovieId(genreList);
   }
 
@@ -177,6 +174,26 @@ divBtns.addEventListener("click", function (evennt) {
   }
   questionTracker++;
 });
+
+function playCorrectAudio() {
+  while (quiz.correct) {
+    quiz.removeChild(quiz.correct);
+  }
+  const correct = document.createElement("audio");
+  correct.setAttribute("src", "./src/assets/correct.mp3");
+  correct.setAttribute("autoplay", "true");
+  quiz.append(correct);
+}
+
+function playWrongAudio() {
+  while (quiz.wrong) {
+    quiz.removeChild(quiz.wrong);
+  }
+  const wrong = document.createElement("audio");
+  wrong.setAttribute("src", "./src/assets/wrong.mp3");
+  wrong.setAttribute("autoplay", "true");
+  quiz.append(wrong);
+}
 
 // save points local storage
 function saveScore(gameScore) {
@@ -224,6 +241,10 @@ async function getClip() {
 }
 
 function displayClip(data) {
+  const youTube = document.getElementById("ytPlayer");
+  while (youTube.firstChild) {
+    youTube.removeChild(youTube.firstChild);
+  }
   const clipEmbed = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
   const video = document.createElement("iframe");
   video.setAttribute("id", "player");
@@ -233,7 +254,5 @@ function displayClip(data) {
   video.setAttribute("height", "390");
   video.setAttribute("frameborder", "0");
   video.setAttribute("src", clipEmbed);
-  const youTube = document.getElementById("ytPlayer");
   youTube.append(video);
-  console.log(clipEmbed);
 }
