@@ -2,49 +2,23 @@
 
 ## Description
 
-This application was developed to entertain the user with movie reviews and questions. The application was created for users that appreciate movies and have a good sense of humor. This game helps the user avoid or choose to watch a specific movie.
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This Program lets a user pick a genre of movie. Once the user has selected a genre, they are able to play a game that will show them a movie trailer and 2 reviews. One review if for the movie trail and the genre the user had selected. The other review is from another movie from an unrelated genre. It is up to the user to guess which movie goes with the movie and will earn points for doing so. The game ends after answering 10 questions. After, the user will see there point count and a highscore board with the top 3 scores.
 
 ## Installation
 
-N/A
+Web URL: https://brittanyb89.github.io/Movie_Review_Game/
+
+GitHub URL: https://github.com/brittanyb89/Movie_Review_Game/
 
 ## Usage
 
-<!-- generic step by step outline, deleted unneeded steps and add images -->
+This application was developed to entertain the user with movie reviews and questions. The application was created for users that appreciate movies and have a good sense of humor. This game helps the user avoid or choose to watch a specific movie. It also helps users discover and learn about movies from genres they are wanting to watch.
 
-Web URL: https://brittanyb89.github.io/Movie_Review_Game/
-GitHub URL: https://github.com/brittanyb89/Movie_Review_Game/
+## Screenshot
 
-STEP 1:
-
-STEP 2:
-
-STEP 3:
-
-STEP 4:
-
-STEP 5:
-
-STEP 6:
-
-STEP 7:
-
-STEP 8:
-
-STEP 9:
-
-STEP 10:
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![screemshot of website, start of quiz](./src/assets/images/Screenshot%202022-11-28%20200745.png)
+![screemshot of website, start of quiz](./src/assets/images/Screenshot%202022-11-28%20200824.png)
+![screemshot of website, start of quiz](./src/assets/images/Screenshot%202022-11-28%20200844.png)
 
 ## Credits
 
