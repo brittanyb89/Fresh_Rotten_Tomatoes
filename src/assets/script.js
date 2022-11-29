@@ -15,6 +15,7 @@ const playAgain = document.querySelector("#play-again");
 const correct = new Audio("./src/assets/correct.mp3");
 const wrong = new Audio("./src/assets/wrong.mp3");
 const apiKey = "AIzaSyCmtN6JemTcM9BG7u-ZoTgEdKS1-m8ngOk";
+const videoPlayer = document.querySelector("#player");
 
 // points and question number
 let pointTracker = 0;
@@ -224,5 +225,15 @@ async function getClip() {
 
 function displayClip(data) {
   const clipEmbed = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+  const video = document.createElement("iframe");
+  video.setAttribute("id", "player");
+  video.setAttribute("title", "ytPlayer");
+  video.setAttribute("type", "text/html");
+  video.setAttribute("width", "640");
+  video.setAttribute("height", "390");
+  video.setAttribute("frameborder", "0");
+  video.setAttribute("src", clipEmbed);
+  const youTube = document.getElementById("ytPlayer");
+  youTube.append(video);
   console.log(clipEmbed);
 }
