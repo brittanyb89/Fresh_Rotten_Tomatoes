@@ -11,6 +11,7 @@ This application was developed to entertain the user with movie reviews and ques
 <!-- This is the preferred link to access deployed site with tailwind -->
 
 URL for Tailwind: https://super-tulumba-3c29b3.netlify.app
+Web URL: https://super-tulumba-3c29b3.netlify.app
 
 GitHub URL: https://github.com/brittanyb89/Movie_Review_Game/
 
